@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import User
+from .models import User, Role
 from .forms import UserForm, RoleForm
 
 def main(request):
@@ -13,24 +13,22 @@ def users(request):
 
 # Create your views here.
 def add_user(request):
-    # получили данные. нужно сохранить юзера в базу
     if request.method == "POST":
-        # получаем данные из формы
-        user = UserForm(request.POST)
-        if user.is_valid():
-            user.save()
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('/users/')
-    # это простой запрос, нужно показать форму
     else:
         form = UserForm()
-        return render(request, "add_user.html", {'form': form})
+    return render(request, "add_user.html", {'form': form, 'page': 'users'})
+
     
 def add_role(request):
     if request.method == "POST":
-        role = RoleForm(request.POST)
-        if role.is_valid():
-            role.save()
+        form = RoleForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('/users/')
     else:
         form = RoleForm()
-        return render(request, "add_role.html", {'form': form})
+    return render(request, "add_role.html", {'form': form, 'page': 'add_role'})
