@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+	<div id="header">
+		<div id="menu">
+			<a href="/users" {% if page == 'users' %} class="active" {% endif %}>Пользователи</a>
+		</div>
+	</div>
+	<div id="content">
+        <div class="e">{% block content%}{% endblock content %}</div>
+    </div>
+	<div id="footer">
+		
+	</div>
+</div>
+</body>
+</html>

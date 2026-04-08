@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Пользователи{% endblock title %}
+{% block content %}
     <table>
         <tr>
             <th>ID</th>
@@ -23,8 +18,9 @@
             <td>{{ user.last_name }}</td>
             <td>{{ user.age }}</td>
             <td>{{ user.balance }}</td>
+            <td>{{ user.role }}</td>
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+    <a href="/add_user">Добавить пользователя</a>
+{% endblock content %}

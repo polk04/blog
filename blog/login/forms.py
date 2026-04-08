@@ -11,4 +11,5 @@ class UserForm(forms.ModelForm):
             'first_name': 'Имя',
             'last_name': 'Фамилия',
             'age': 'Возраст',
+            'role': 'Роль',
         }
